@@ -1,5 +1,6 @@
 import java.io.*;
 import java.net.ServerSocket;
+import java.net.Socket;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,7 +14,7 @@ public class Main {
 
         try{
             server = new ServerSocket(portnumber);
-        }catch (IOException e){
+        }catch (IOException ie){
             System.out.println("Cannot open socket." +ie);
             System.exit(1);
         }
@@ -29,7 +30,7 @@ public class Main {
                 int clientPort = client.getPort();
                 System.out.println("Client host = " +clientHost +" Client port = " +clientPort);
 
-                InputStream clientIn = client.getInputStream;
+                InputStream clientIn = client.getInputStream();
                 BufferedReader br = new BufferedReader(new InputStreamReader(clientIn));
                 String msgFromClient = br.readLine();
                 System.out.println("Message recieved from client: " +msgFromClient);
